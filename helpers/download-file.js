@@ -2,15 +2,14 @@ const https = require('https');
 const chalk = require('chalk');
 // https://www.npmjs.com/package/cli-progress
 
-const downloadFile = (url, file) => {
-    console.log(
-        chalk.white(`Start downloading from ${url}`)
-    );
-
-    return new Promise((resolve) => {
+const downloadFile = async (url, file) =>    
+    new Promise((resolve) => {
+        console.log(
+            chalk.white(`Start downloading from ${url}`)
+        );
         https.get(url, function (res) {
             res.pipe(file)
-                .on('end', function () {
+                .on('finish', function () {
                     console.log(
                         chalk.white.bold(`File from ${url} downloaded`)
                     );
@@ -18,6 +17,5 @@ const downloadFile = (url, file) => {
                 });
         });
     });
-};
 
 module.exports = downloadFile;

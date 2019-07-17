@@ -5,9 +5,8 @@ const { JSDOM } = require('jsdom');
 const minimist = require('minimist');
 const chalk = require('chalk');
 
-const createFile = require('./helpers/create-file');
 const createFolder = require('./helpers/create-folder');
-const downloadFile = require('./helpers/download-file');
+const downloadFiles = require('./helpers/download-files');
 const getContentFromUrl = require('./helpers/get-content-from-url');
 
 const src = "./courses";
@@ -59,15 +58,8 @@ const run = async () => {
     const destiny = `${src}/${title.toLowerCase()}`;
     createFolder(destiny);
 
-    for (const video of videos) {
-        const { name, url } = video;
-        
-        const filePath = `${destiny}/${name}`;
-        const file = createFile(filePath);
-
-        // Download File
-        await downloadFile(url, file, filePath);
-    }
+    // Download File
+    await downloadFiles(destiny, videos);
 
     // show success message
     success(`Course ${args.course} downloaded`);
