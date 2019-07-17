@@ -1,0 +1,16 @@
+{
+  "name": "coursehunters-downloader",
+  "version": "1.0.0",
+  "description": "Download for CourseHunters",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Alton Bell Smythe <abellsmythe@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "jsdom": "^15.0.0",
+    "minimist": "^1.2.0"
+  }
+}
