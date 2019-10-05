@@ -2,6 +2,8 @@
 
 Downloader from https://coursehunters.net
 
+> currently does not work, for new paid subscriptions
+
 ### Install 
 
 ``` bash
